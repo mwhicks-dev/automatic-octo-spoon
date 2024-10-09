@@ -5,7 +5,7 @@
 TEST(TestTimeSeries, Constructor) {
     // create start, end times
     std::tm start_timestamp{};
-    start_timestamp.tm_year = 2024 - 1990;
+    start_timestamp.tm_year = 2024 - 1900;
     start_timestamp.tm_mon = 10 - 1;
     start_timestamp.tm_mday = 8;
     start_timestamp.tm_hour = 9;
@@ -13,7 +13,7 @@ TEST(TestTimeSeries, Constructor) {
     opt::StandardTime t0(std::mktime(&start_timestamp));
     
     std::tm end_timestamp{};
-    end_timestamp.tm_year = 2024 - 1990;
+    end_timestamp.tm_year = 2024 - 1900;
     end_timestamp.tm_mon = 10 - 1;
     end_timestamp.tm_mday = 8;
     end_timestamp.tm_hour = 16;
@@ -25,8 +25,8 @@ TEST(TestTimeSeries, Constructor) {
     // create time series
     opt::TimeSeries ts(symb, t0, tf, 224.30, 225.98, 223.25, 225.77);
 
-    EXPECT_EQ("2024/10/8 09:30:00", ts.get_start().format("%Y/%m/%d %H:%M:%S"));
-    EXPECT_EQ("2024/10/8 04:00:00", ts.get_start().format("%Y/%m/%d %H:%M:%S"));
+    EXPECT_EQ("2024/10/08 09:30:00", ts.get_start().format("%Y/%m/%d %H:%M:%S"));
+    EXPECT_EQ("2024/10/08 04:00:00", ts.get_end().format("%Y/%m/%d %I:%M:%S"));
 
     EXPECT_EQ("AAPL", ts.get_symbol().get_symbol());
     EXPECT_EQ("Apple", ts.get_symbol().get_name());

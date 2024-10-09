@@ -3,12 +3,12 @@
 using namespace opt;
 
 TimeSeries::TimeSeries(Symbol symbol, StandardTime start, StandardTime end, 
-        float open, float close, float high, float low)
+        float open, float high, float low, float close)
         : symbol(symbol), start(start), end(end) {
     this->open = open;
-    this->close = close;
     this->high = high;
     this->low = low;
+    this->close = close;
 }
 
 Symbol TimeSeries::get_symbol(void) { return symbol; }

@@ -6,9 +6,14 @@ set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(ENTITY_SOURCES src/StandardTime.cpp src/Symbol.cpp src/Ticker.cpp src/TimeSeries.cpp)
+set(APPLICATION_SOURCES src/TickerManager.cpp)
 
 add_library(opt-entity STATIC ${ENTITY_SOURCES})
 target_include_directories(opt-entity PUBLIC ./include)
+
+add_library(opt-application STATIC ${APPLICATION_SOURCES})
+target_include_directories(opt-application PUBLIC ./include)
+target_link_libraries(opt-application opt-entity)
 
 include(FetchContent)
 FetchContent_Declare(

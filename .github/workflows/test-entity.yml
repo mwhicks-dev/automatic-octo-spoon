@@ -1,0 +1,22 @@
+name: test-entity
+
+on:
+  push:
+    branches:
+      '!main'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out branch
+        uses: actions/checkout@v4
+      - name: Build Docker Image
+        run: docker build -t opt_test -f ${GITHUB_WORKSPACE}/Dockerfile-Test ${GITHUB_WORKSPACE}/
+      - name: Test Entity classes
+        run: |
+          docker run --rm opt_test ./standard_time_test
+          docker run --rm opt_test ./symbol_test
+          docker run --rm opt_test ./ticker_test
+          docker run --rm opt_test ./time_series_test
+          

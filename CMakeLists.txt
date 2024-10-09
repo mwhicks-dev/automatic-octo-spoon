@@ -42,3 +42,9 @@ target_link_libraries(ticker_test opt-entity gtest gtest_main)
 
 add_executable(time_series_test test/TestTimeSeries.cpp)
 target_link_libraries(time_series_test opt-entity gtest gtest_main)
+
+add_executable(ticker_data_test test/TestTickerData.cpp)
+target_link_libraries(ticker_data_test opt-entity opt-application opt-adapter gtest gtest_main)
+
+add_executable(ticker_queue_test test/TestTickerQueue.cpp)
+target_link_libraries(ticker_queue_test opt-entity opt-application opt-adapter gtest gtest_main)

@@ -28,6 +28,8 @@ docker run --rm opt_test ./standard_time_test
 docker run --rm opt_test ./symbol_test
 docker run --rm opt_test ./ticker_test
 docker run --rm opt_test ./time_series_test
+docker run --rm opt_test ./test_ticker_data
+docker run --rm opt_test ./test_queue_data
 ```
 
 ## License

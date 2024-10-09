@@ -2,12 +2,9 @@ name: test-entity
 
 on:
   pull_request:
-    branches:
-      - 'main'
-      - 'dev'
 
 jobs:
-  job:
+  test:
     runs-on: ubuntu-latest
     steps:
       - name: Check out head branch

@@ -7,7 +7,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(ENTITY_SOURCES src/StandardTime.cpp src/Symbol.cpp src/Ticker.cpp src/TimeSeries.cpp)
 set(APPLICATION_SOURCES src/TickerManager.cpp)
-set(ADAPTER_SOURCES src/PriceAdapter.cpp)
+set(ADAPTER_SOURCES src/PriceAdapter.cpp src/TickerData.cpp src/TickerAdapter.cpp)
 
 add_library(opt-entity STATIC ${ENTITY_SOURCES})
 target_include_directories(opt-entity PUBLIC ./include)

@@ -1,0 +1,25 @@
+name: test-entity
+
+on:
+  pull_request:
+    branches:
+      - 'main'
+      - 'dev'
+
+jobs:
+  job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out head branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+      - name: Build Docker Image
+        run: docker build -t opt_test -f Dockerfile-Test .
+      - name: Test Entity classes
+        run: |
+          docker run --rm opt_test ./standard_time_test
+          docker run --rm opt_test ./symbol_test
+          docker run --rm opt_test ./ticker_test
+          docker run --rm opt_test ./time_series_test
+          

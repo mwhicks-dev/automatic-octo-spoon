@@ -48,3 +48,6 @@ target_link_libraries(ticker_data_test opt-entity opt-application opt-adapter gt
 
 add_executable(ticker_queue_test test/TestTickerQueue.cpp)
 target_link_libraries(ticker_queue_test opt-entity opt-application opt-adapter gtest gtest_main)
+
+add_executable(adapter_integration_test test/TestApplicationAdapters.cpp)
+target_link_libraries(adapter_integration_test opt-entity opt-application opt-adapter gtest gtest_main)

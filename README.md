@@ -30,6 +30,7 @@ docker run --rm -t --entrypoint "./ticker_test" opt
 docker run --rm -t --entrypoint "./time_series_test" opt
 docker run --rm -t --entrypoint "./ticker_data_test" opt
 docker run --rm -t --entrypoint "./ticker_queue_test" opt
+docker run --rm -t --entrypoint "./adapter_integration_test" opt
 ```
 
 ## License

@@ -2,17 +2,17 @@
 #define opt_TickerAdapter_h
 
 #include "ITickerOutput.h"
-#include "TickerData.h"
+#include "TickerQueue.h"
 
 namespace opt {
 
     class TickerAdapter : public ITickerOutput {
 
-        TickerData& output_data;
+        TickerQueue& output_data;
 
     public:
 
-        TickerAdapter(TickerData&);
+        TickerAdapter(TickerQueue&);
 
         void push_ticker(Ticker);
 

@@ -2,12 +2,10 @@
 
 using namespace opt;
 
-void TickerData::push_ticker(Ticker ticker) { tickers.push(ticker); }
-
-Ticker TickerData::pop_ticker(void) { 
-    Ticker res = tickers.front(); 
-    tickers.pop();
-    return res;
+TickerData::TickerData(std::string symbol, std::string name,
+        std::string timestamp, float value) {
+    this->symbol = symbol;
+    this->name = name;
+    this->timestamp = timestamp;
+    this->value = value;
 }
-
-bool TickerData::ticker_available(void) { return !tickers.empty(); }

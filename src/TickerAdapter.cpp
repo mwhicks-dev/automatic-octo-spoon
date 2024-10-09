@@ -2,6 +2,6 @@
 
 using namespace opt;
 
-TickerAdapter::TickerAdapter(TickerData& data) : output_data(data) {}
+TickerAdapter::TickerAdapter(TickerQueue& data) : output_data(data) {}
 
 void TickerAdapter::push_ticker(Ticker ticker) { output_data.push_ticker(ticker); }

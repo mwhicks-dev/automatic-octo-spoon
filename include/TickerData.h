@@ -1,23 +1,17 @@
 #ifndef opt_TickerData_h
 #define opt_TickerData_h
 
-#include "Ticker.h"
-
-#include <queue>
+#include <string>
 
 namespace opt {
 
-    class TickerData {
+    struct TickerData {
 
-        std::queue<Ticker> tickers;
+        std::string symbol, name, timestamp;
 
-    public:
+        float value;
 
-        void push_ticker(Ticker);
-
-        Ticker pop_ticker(void);
-
-        bool ticker_available(void);
+        TickerData(std::string, std::string, std::string, float);
 
     };
 

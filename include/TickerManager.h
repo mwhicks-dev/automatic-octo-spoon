@@ -1,18 +1,18 @@
 #ifndef opt_TickerManager_h
 #define opt_TickerManager_h
 
-#include "PriceInput.h"
-#include "TickerOutput.h"
+#include "IPriceInput.h"
+#include "ITickerOutput.h"
 
 namespace opt {
 
-    class TickerManager : public PriceInput {
+    class TickerManager : public IPriceInput {
 
-        TickerOutput& adapter;
+        ITickerOutput& adapter;
 
     public:
 
-        TickerManager(TickerOutput&);
+        TickerManager(ITickerOutput&);
 
         void update_ticker(Symbol, float) override;
 

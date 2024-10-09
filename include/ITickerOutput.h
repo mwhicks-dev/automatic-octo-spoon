@@ -5,7 +5,7 @@
 
 namespace opt {
 
-    class TickerOutput {
+    class ITickerOutput {
 
     public:
 

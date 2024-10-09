@@ -5,7 +5,7 @@
 
 namespace opt {
 
-    class PriceInput {
+    class IPriceInput {
 
     public:
 

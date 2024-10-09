@@ -18,18 +18,18 @@ automatic-octo-spoon is the first step in a larger distributed system used for q
 Right now, this repository is only usable in the sense that tests can be run on it. You can build the tests via Docker using:
 
 ```bash
-docker build -t opt_test -f ${GITHUB_WORKSPACE}/Dockerfile-Test ${GITHUB_WORKSPACE}/
+docker build --no-cache -t opt ${GITHUB_WORKSPACE}/
 ```
 
 where `GITHUB_WORKSPACE` is the path to `automatic-octo-spoon` (inclusive), and you can run all of the tests currently available using:
 
 ```bash
-docker run --rm opt_test ./standard_time_test
-docker run --rm opt_test ./symbol_test
-docker run --rm opt_test ./ticker_test
-docker run --rm opt_test ./time_series_test
-docker run --rm opt_test ./test_ticker_data
-docker run --rm opt_test ./test_queue_data
+docker run --rm -t --entrypoint "./standard_time_test" opt
+docker run --rm -t --entrypoint "./symbol_test" opt
+docker run --rm -t --entrypoint "./ticker_test" opt
+docker run --rm -t --entrypoint "./time_series_test" opt
+docker run --rm -t --entrypoint "./ticker_data_test" opt
+docker run --rm -t --entrypoint "./ticker_queue_test" opt
 ```
 
 ## License

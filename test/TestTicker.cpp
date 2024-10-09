@@ -8,7 +8,7 @@ TEST(TestTicker, Constructor) {
     timestamp.tm_year = 2024 - 1900;
     timestamp.tm_mon = 10 - 1;
     timestamp.tm_mday = 9;
-    timestamp.tm_hour = 10 - 1;
+    timestamp.tm_hour = 10;
     timestamp.tm_min = 44;
     timestamp.tm_sec = 15;
     opt::StandardTime t(std::mktime(&timestamp));

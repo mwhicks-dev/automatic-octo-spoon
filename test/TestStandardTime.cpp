@@ -31,7 +31,7 @@ TEST(TestStandardTime, Format) {
     timestamp.tm_year = 2024 - 1900;
     timestamp.tm_mon = 10 - 1;
     timestamp.tm_mday = 9;
-    timestamp.tm_hour = 10 - 1;
+    timestamp.tm_hour = 10;
     timestamp.tm_min = 26;
     timestamp.tm_sec = 0;
 

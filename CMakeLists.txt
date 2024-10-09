@@ -32,3 +32,7 @@ target_link_libraries(symbol_test opt-entity gtest gtest_main)
 add_executable(ticker_test test/TestTicker.cpp)
 target_include_directories(ticker_test PUBLIC ./include)
 target_link_libraries(ticker_test opt-entity gtest gtest_main)
+
+add_executable(time_series_test test/TestTimeSeries.cpp)
+target_include_directories(ticker_test PUBLIC ./include)
+target_link_libraries(time_series_test opt-entity gtest gtest_main)

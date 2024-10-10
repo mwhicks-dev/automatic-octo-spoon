@@ -12,7 +12,7 @@ TEST(TestApplicationAdapters, IntegrationTest) {
     opt::PriceAdapter pa(tm);
 
     // generate tickers and their expected outputs (more or less)
-    std::vector<std::tuple<std::string, std::string, float>> input_data;
+    std::vector<opt::StockData> input_data;
     std::vector<opt::TickerData> output_data;
 
     {  // ticker 1
@@ -31,10 +31,10 @@ TEST(TestApplicationAdapters, IntegrationTest) {
     }
 
     for (size_t i = 0; i < 3; i++) {
-        std::tuple<std::string, std::string, float> input = input_data[i];
+        opt::StockData input = input_data[i];
         opt::TickerData expected = output_data[i];
 
-        pa.update_ticker(std::get<0>(input), std::get<1>(input), std::get<2>(input));
+        pa.update_ticker(input);
         size_t ctr = 0;
         while (tq.ticker_available()) {
             EXPECT_EQ(0, ctr);

@@ -2,6 +2,7 @@
 #define opt_PriceAdapter_h
 
 #include "IPriceInput.h"
+#include "StockData.h"
 
 namespace opt {
 
@@ -13,7 +14,7 @@ namespace opt {
 
         PriceAdapter(IPriceInput&);
 
-        void update_ticker(std::string, std::string, float);
+        void update_ticker(StockData);
 
     };
 

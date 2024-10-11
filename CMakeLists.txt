@@ -8,6 +8,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(ENTITY_SOURCES src/StandardTime.cpp src/Symbol.cpp src/Ticker.cpp src/TimeSeries.cpp)
 set(APPLICATION_SOURCES src/TickerManager.cpp)
 set(ADAPTER_SOURCES src/PriceAdapter.cpp src/TickerData.cpp src/TickerQueue.cpp src/TickerAdapter.cpp)
+set(DEPENDENCY_SOURCES src/FinazonInput.cpp)
 
 add_library(opt-entity STATIC ${ENTITY_SOURCES})
 target_include_directories(opt-entity PUBLIC ./include)
@@ -19,6 +20,14 @@ target_link_libraries(opt-application opt-entity)
 add_library(opt-adapter STATIC ${ADAPTER_SOURCES})
 target_include_directories(opt-adapter PUBLIC ./include)
 target_link_libraries(opt-adapter opt-entity opt-application)
+
+find_package(CURL REQUIRED)
+find_package(nlohmann_json REQUIRED)
+
+add_library(opt-dependency STATIC ${DEPENDENCY_SOURCES})
+target_include_directories(opt-dependency PUBLIC ./include)
+target_link_libraries(opt-dependency opt-entity opt-application opt-adapter)
+target_link_libraries(opt-dependency CURL::libcurl nlohmann_json::nlohmann_json)
 
 include(FetchContent)
 FetchContent_Declare(

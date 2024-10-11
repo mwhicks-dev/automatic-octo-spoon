@@ -9,7 +9,7 @@ namespace opt {
 
     public:
 
-        virtual void process_tickers(TickerQueue) = 0;
+        virtual void process_tickers(TickerQueue&) = 0;
 
     };
 
